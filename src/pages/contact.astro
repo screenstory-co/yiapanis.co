@@ -1,13 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
+const success = Astro.url.searchParams.get('sent');
 ---
 
 <Base title="Contact | Demetris Yiapanis">
   <h2 class="page-title">Get in Touch</h2>
   <p class="page-subtitle">For enquiries, collaborations, or just to say hello</p>
 
+  {success && <div style="background: var(--surface); border: 1px solid var(--accent); padding: 1rem 1.5rem; margin: 2rem 0; color: var(--accent); font-size: 0.85rem;">
+    ✓ Your message has been sent. Demetris will be in touch soon.
+  </div>}
+
   <div style="max-width: 600px; margin-top: 2rem;">
-    <form action="https://formspree.io/f/xnqkyjyl" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <form action="/api/contact" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
       <div>
         <label for="name" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Name</label>
         <input type="text" id="name" name="name" required
