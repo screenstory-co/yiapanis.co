@@ -1,0 +1,72 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: screenstory-co/yiapanis.co
+
+media_folder: public/images
+public_folder: /images
+
+publish_mode: editorial_workflow
+
+site_url: https://yiapanis.co
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name: profile
+    label: Profile
+    folder: src/content/profile
+    create: false
+    delete: false
+    slug: "default"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string", required: false }
+      - { label: "Headshot", name: "headshot", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: films
+    label: Films
+    folder: src/content/films
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Genre", name: "genre", widget: "list", allow_add: true }
+      - { label: "Type", name: "type", widget: "string", required: false }
+      - { label: "Synopsis", name: "synopsis", widget: "text" }
+      - { label: "Video URL", name: "videoUrl", widget: "string", required: false }
+      - { label: "Poster", name: "poster", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", default: 0 }
+      - { label: "Year", name: "year", widget: "number", value_type: "int", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: blog
+    label: Blog Posts
+    folder: src/content/blog
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: inDevelopment
+    label: In Development
+    folder: src/content/inDevelopment
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Status", name: "status", widget: "select", options: ["concept", "development", "pre-production", "production"] }
+      - { label: "Logline", name: "logline", widget: "text" }
+      - { label: "Genre", name: "genre", widget: "list", allow_add: true, required: false }
+      - { label: "Type", name: "type", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }

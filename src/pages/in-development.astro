@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const projects = await getCollection('inDevelopment');
+---
+
+<Base title="In Development | Demetris Yiapanis">
+  <h2 class="page-title">In Development</h2>
+  <p class="page-subtitle">Current slate of projects in various stages of development</p>
+
+  <div style="margin-top: 2rem;">
+    {projects.length > 0 ? (
+      <div class="grid-auto">
+        {projects.map(p => <article class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <h3 style="font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; margin:0;">{p.data.title}</h3>
+            <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); border:1px solid var(--border); padding:0.3rem 0.6rem;">
+              {p.data.status}
+            </span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1rem;">{p.data.logline}</p>
+          {p.data.genre && <p style="font-size:0.75rem; color:var(--muted);">{p.data.genre.join(' • ')} {p.data.type && `• ${p.data.type}`}</p>}
+        </article>)}
+      </div>
+    ) : (
+      <div class="card" style="text-align:center; padding: 4rem;">
+        <p style="color: var(--muted); font-style: italic;">Projects will appear here as they enter development.</p>
+      </div>
+    )}
+  </div>
+</Base>

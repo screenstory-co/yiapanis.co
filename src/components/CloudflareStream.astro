@@ -1,0 +1,26 @@
+---
+export interface Props {
+  videoId: string;
+  class?: string;
+}
+
+const { videoId, class: className = '' } = Astro.props;
+---
+
+<div class={`stream-wrapper ${className}`}>
+  <iframe
+    src={`https://iframe.cloudflarestream.com/${videoId}`}
+    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+    allowfullscreen="true"
+  ></iframe>
+</div>
+
+<style>
+  .stream-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+    background: #000;
+  }
+</style>

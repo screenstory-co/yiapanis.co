@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+const published = posts
+  .filter(p => !p.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Base title="Blog | Demetris Yiapanis">
+  <h2 class="page-title">Journal</h2>
+  <p class="page-subtitle">Thoughts on filmmaking, screenwriting, and the creative process</p>
+
+  <div style="margin-top: 2rem;">
+    {published.map(p => <article style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);">
+      <h3>
+        <a href={`/blog/${p.slug}`} style="font-family: var(--font-display); font-weight: 400; font-size: 1.3rem;">{p.data.title}</a>
+      </h3>
+      <p style="font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin: 0.5rem 0 1rem;">
+        {new Date(p.data.date).toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+      {p.data.excerpt && <p style="color: var(--muted); font-size: 0.9rem;">{p.data.excerpt}</p>}
+    </article>)}
+  </div>
+</Base>

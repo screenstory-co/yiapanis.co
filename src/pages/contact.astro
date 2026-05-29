@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Contact | Demetris Yiapanis">
+  <h2 class="page-title">Get in Touch</h2>
+  <p class="page-subtitle">For enquiries, collaborations, or just to say hello</p>
+
+  <div style="max-width: 600px; margin-top: 2rem;">
+    <form action="https://formspree.io/f/xnqkyjyl" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <div>
+        <label for="name" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Name</label>
+        <input type="text" id="name" name="name" required
+          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color .2s;"
+          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
+        />
+      </div>
+
+      <div>
+        <label for="email" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Email</label>
+        <input type="email" id="email" name="email" required
+          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none;"
+          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
+        />
+      </div>
+
+      <div>
+        <label for="message" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Message</label>
+        <textarea id="message" name="message" rows="6" required
+          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none; resize: vertical;"
+          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
+        ></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <button type="submit" class="btn btn-accent" style="align-self: flex-start;">Send Message</button>
+    </form>
+  </div>
+</Base>

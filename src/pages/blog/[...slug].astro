@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+---
+<Base title={`${post.data.title} | Demetris Yiapanis`}>
+  <h2>{post.data.title}</h2>
+  <p style="font-size:0.75rem; color:var(--muted); margin-bottom:1.5rem;">{post.data.date}</p>
+  <article set:html={post.body} />
+</Base>

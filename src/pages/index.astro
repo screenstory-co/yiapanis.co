@@ -1,17 +1,36 @@
 ---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 
+const profileEntries = await getCollection('profile');
+const profile = profileEntries[0];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Demetris Yiapanis | Director & Screenwriter">
+  <div style="display:grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; padding: 3rem 0;">
+    <!-- Left: Identity -->
+    <div style="text-align: center;">
+      <h1 style="font-family: var(--font-serif); font-weight: 400; font-style: italic; font-size: 2.5rem; margin-bottom: 0.5rem;">
+        Demetri
+      </h1>
+      <p style="font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;">
+        Director &amp; Screenwriter
+      </p>
+      <a href="mailto:demetris@yiapanis.co" class="btn">Contact Me</a>
+    </div>
+
+    <!-- Right: Bio -->
+    <div>
+      {profile ? (
+        <article class="prose" set:html={profile.body} />
+      ) : (
+        <p>No profile content yet.</p>
+      )}
+    </div>
+  </div>
+
+  <style>
+    .prose p { margin-bottom: 1.2rem; max-width: 65ch; font-size: 0.95rem; }
+    .prose p:first-child { margin-top: 0; }
+  </style>
+</Base>
