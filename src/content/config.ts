@@ -41,6 +41,8 @@ const inDevelopment = defineCollection({
     logline: z.string(),
     genre: z.array(z.string()).optional(),
     type: z.string().optional(),
+    poster: z.string().optional(),
+    order: z.number().default(0),
   }),
 });
 
