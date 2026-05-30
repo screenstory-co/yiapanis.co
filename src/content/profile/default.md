@@ -1,6 +1,7 @@
 ---
 name: "Demetris Yiapanis"
 tagline: "Director & Screenwriter"
+photo: "/images/profile.jpg"
 ---
 <p>Born in Nicosia, Cyprus, my formative years were split between Cyprus and Australia. I moved to Melbourne permanently in 2000 after military service in the Cypriot National Guard. An artist at my core, music and literature gave way to a more pragmatic career as I spent a decade working in information technology and management roles. More recently, I helped people and businesses tell their stories online through my independent agency offering consulting and various digital platforms.</p>
 

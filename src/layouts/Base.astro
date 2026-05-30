@@ -195,6 +195,18 @@ const nav = [
       padding: 3rem 0;
     }
 
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 50%;
+      margin: 1rem auto;
+      border: 2px solid var(--border);
+      transition: border-color .2s;
+    }
+    .profile-photo:hover { border-color: var(--accent); }
+
     /* Gallery */
     .gallery {
       display: grid;
