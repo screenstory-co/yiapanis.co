@@ -13,7 +13,10 @@ const films = filmEntries.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 
   <div class="grid-auto" style="margin-top: 2rem;">
     {films.map(f => <article class="card" style="overflow: hidden; padding: 0;">
       {f.data.poster && <div style="width: 100%; aspect-ratio: 2/3; overflow: hidden;">
-        <img src={f.data.poster} alt={`${f.data.title} poster`} style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src={f.data.poster} alt={`${f.data.title} poster`} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+      </div>}
+      {!f.data.poster && <div style="width: 100%; aspect-ratio: 2/3; overflow: hidden; background: var(--surface); display: flex; align-items: center; justify-content: center;"
+        <p style="color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">No poster</p>
       </div>}
       <div style="padding: 1.5rem;">
         <h3 style="font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; margin-bottom: 0.5rem;">
