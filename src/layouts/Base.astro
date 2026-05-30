@@ -154,9 +154,32 @@ const nav = [
       background: var(--surface);
       border: 1px solid var(--border);
       padding: 2rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* Form fields */
+    .field-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      color: var(--muted);
+    }
+    .field-input {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
       transition: border-color .2s;
     }
-    .card:hover { border-color: var(--accent); }
+    .field-input:focus { border-color: var(--accent); }
+    .field-input::placeholder { color: var(--muted); opacity: 0.5; }
 
     /* Grid */
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -224,7 +247,7 @@ const nav = [
   </main>
 
   <footer class="site-footer">
-    &copy; {new Date().getFullYear()} Demetris Yiapanis. All Rights Reserved.
+    &copy; <span id="footer-year">2025</span> Demetris Yiapanis. All Rights Reserved.
   </footer>
 
   <script is:inline>

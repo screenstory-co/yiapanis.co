@@ -7,39 +7,47 @@ const success = Astro.url.searchParams.get('sent');
   <h2 class="page-title">Get in Touch</h2>
   <p class="page-subtitle">For enquiries, collaborations, or just to say hello</p>
 
-  {success && <div style="background: var(--surface); border: 1px solid var(--accent); padding: 1rem 1.5rem; margin: 2rem 0; color: var(--accent); font-size: 0.85rem;">
+  {success && <div role="alert" style="background: var(--surface); border: 1px solid var(--accent); padding: 1rem 1.5rem; margin: 2rem 0; color: var(--accent); font-size: 0.85rem;">
     ✓ Your message has been sent. Demetris will be in touch soon.
   </div>}
 
   <div style="max-width: 600px; margin-top: 2rem;">
-    <form action="/api/contact" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <form id="contact-form" action="/api/contact" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
       <div>
-        <label for="name" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Name</label>
-        <input type="text" id="name" name="name" required
-          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color .2s;"
-          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
-        />
+        <label for="name" class="field-label">Name</label>
+        <input type="text" id="name" name="name" required class="field-input" placeholder="Your full name" />
       </div>
 
       <div>
-        <label for="email" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Email</label>
-        <input type="email" id="email" name="email" required
-          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none;"
-          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
-        />
+        <label for="email" class="field-label">Email</label>
+        <input type="email" id="email" name="email" required class="field-input" placeholder="you@example.com" />
       </div>
 
       <div>
-        <label for="message" style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--muted);">Message</label>
-        <textarea id="message" name="message" rows="6" required
-          style="width: 100%; padding: 0.8rem; background: var(--surface); border: 1px solid var(--border); color: var(--fg); font-family: var(--font-body); font-size: 0.9rem; outline: none; resize: vertical;"
-          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"
-        ></textarea>
+        <label for="message" class="field-label">Message</label>
+        <textarea id="message" name="message" rows="6" required class="field-input" style="resize: vertical;" placeholder="Tell me about your project..."></textarea>
       </div>
 
       <input type="text" name="_gotcha" style="display:none" />
 
-      <button type="submit" class="btn btn-accent" style="align-self: flex-start;">Send Message</button>
+      <button type="submit" class="btn btn-accent" style="align-self: flex-start;">
+        <span class="btn-text">Send Message</span>
+        <span class="btn-loading" style="display:none;">Sending…</span>
+      </button>
     </form>
   </div>
+
+  <script is:inline>
+    (function() {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function() {
+        var btn = form.querySelector('button[type="submit"]');
+        var btnText = btn.querySelector('.btn-text');
+        var btnLoading = btn.querySelector('.btn-loading');
+        if (btnText) btnText.style.display = 'none';
+        if (btnLoading) btnLoading.style.display = 'inline';
+      });
+    })();
+  </script>
 </Base>
