@@ -22,4 +22,16 @@ excerpt: "Directing a scene from Proof (1991) under the tutelage of PJ Hogan and
   <img src="/images/blog/masterclass-6.jpeg" alt="Proof masterclass — cast" />
 </div>
 
-<p><em>Griffith Film School, 2024. Scene from <strong>Proof</strong> (1991).</em></p>
+<p><strong>My Interpretation — Director: D Yiapanis</strong></p>
+
+<div style="margin: 1.5rem 0;">
+  <iframe src="https://iframe.cloudflarestream.com/dacbfc703514573bb7cb0f91f33e05fc" style="border: none;" height="720" width="100%" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true" title="Director: D Yiapanis — Proof masterclass"></iframe>
+</div>
+
+<p><em>Original scene from <strong>Proof</strong> (1991). Written &amp; Directed by Jocelyn Moorhouse.</em></p>
+
+<div style="margin: 1.5rem 0;">
+  <iframe src="https://iframe.cloudflarestream.com/370e55218707e02e8490045e63056b29" style="border: none;" height="720" width="100%" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true" title="Proof (1991) — Original scene"></iframe>
+</div>
+
+<p><em>Griffith Film School, 2024.</em></p>

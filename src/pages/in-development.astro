@@ -15,7 +15,7 @@ projects.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
         {projects.map(p => <article class="card">
           {p.data.poster ? (
             <div style="aspect-ratio: 3/2; overflow: hidden; margin: -2rem -2rem 1.5rem -2rem;">
-              <img src={p.data.poster} alt={\`${p.data.title} visual\`} style="width:100%; height:100%; object-fit:cover;" />
+              <img src={p.data.poster} alt={`${p.data.title} visual`} style="width:100%; height:100%; object-fit:cover;" />
             </div>
           ) : null}
           <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:1rem;">

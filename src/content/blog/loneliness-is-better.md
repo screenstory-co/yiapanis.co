@@ -21,3 +21,9 @@ And a sea breeze</p>
 Than you who I can&rsquo;t reach<br/>
 I find you, then I lose you<br/>
 Loneliness is better</em></p>
+
+<p style="font-size: 0.75rem; color: var(--muted); margin-top: 2rem;"><em>A Greek song about longing.</em></p>
+
+<div style="margin: 1.5rem 0;">
+  <iframe src="https://www.youtube.com/embed/mlOzWTTqdGc" style="border: none;" height="400" width="100%" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true" title="Γιάννης Πάριος — Μη μου μιλάς για μοναξιά"></iframe>
+</div>
