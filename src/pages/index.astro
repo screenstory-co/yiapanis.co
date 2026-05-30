@@ -7,6 +7,11 @@ const profile = profileEntries[0];
 ---
 
 <Base title="Demetris Yiapanis | Director & Screenwriter">
+  <!-- Hero header image -->
+  <div class="hero">
+    <div class="hero-inner"></div>
+  </div>
+
   <div class="profile-grid">
     <!-- Left: Identity -->
     <div style="text-align: center;">
@@ -31,6 +36,24 @@ const profile = profileEntries[0];
   </div>
 
   <style>
+    .hero {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      height: 360px;
+      background-image: url('/images/hero-bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center 59%;
+      background-size: cover;
+      border-bottom: 1px solid var(--border);
+      background-attachment: fixed;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 1.5rem;
+    }
     .prose p { margin-bottom: 1.2rem; max-width: 65ch; font-size: 0.95rem; }
     .prose p:first-child { margin-top: 0; }
   </style>
