@@ -1,29 +1,40 @@
 ---
-title: "Loneliness is better"
+title: "Loneliness Is Better"
 date: "2021-03-12"
-excerpt: "A short film concept about companion animals and human loneliness, inspired by a Greek song by Giannis Parios."
+excerpt: "Reflections on loneliness, companion animals, and the seed of a short film idea."
 ---
 
-<p>I was thinking about loneliness within the context of companion animals; the way we (humans) keep them as &lsquo;companions&rsquo; often without a second thought to their own need for companionship with their own kind.</p>
+I was thinking about loneliness within the context of companion animals; the way we (humans) keep them as "companions" often without a second thought to their own need for companionship with their own kind.
 
-<p><strong>Short Film Concept: Birds Of A Feather</strong></p>
+It led me to an idea for a short film about loneliness titled, "Birds Of A Feather"
 
-<p>A man keeps a bird for company but yearns for human companionship. Only by freeing the bird to find its mate can the man find his own.</p>
+> A man keeps a bird for company but yearns for human companionship. It is only when he frees the bird to find her mate that the man can find his.
 
-<hr/>
+As I'm working, this beautiful Greek song my father used to listen to when we were kids popped into my head.
 
-<p><em>If only loneliness had a color,<br/>
-To draw on paper,<br/>
-So I could make it light blue,<br/>
-And a sea breeze</p>
+"Loneliness is better" by Giannis Parios — Enjoy! (lyrics translation below)
 
-<p>Loneliness is better,<br/>
-Than you who I can&rsquo;t reach<br/>
-I find you, then I lose you<br/>
-Loneliness is better</em></p>
+If only loneliness had a color,
+To draw on paper,
+So I could make it light blue,
+And a sea breeze
 
-<p style="font-size: 0.75rem; color: var(--muted); margin-top: 2rem;"><em>A Greek song about longing.</em></p>
+I would also put sails on it,
+For one last journey
+Your embrace,
+Is a haven in the Aegean
 
-<div style="margin: 1.5rem 0;">
-  <iframe src="https://www.youtube.com/embed/mlOzWTTqdGc" style="border: none;" height="400" width="100%" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen="true" title="Γιάννης Πάριος — Μη μου μιλάς για μοναξιά"></iframe>
-</div>
+Loneliness is better,
+Than you who I can't reach
+I find you, then I lose you
+Loneliness is better
+
+If only loneliness were a stone,
+To climb up on
+Το get lost into oblivion,
+So I won't see you as you're leaving
+
+And turn into smoke,
+Just like a cigarette that's burning out
+From now on you will be alone
+And so will I.
