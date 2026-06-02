@@ -1,14 +1,15 @@
-name = "yiapanis-co"
-account_id = "9c8e079bb5923e09a1617f592c807bf2"
-compatibility_date = "2026-05-29"
+# Cloudflare Pages configuration
+# Account: Screen Story Co (9c8e079bb5923e09a1617f592c807bf2)
 
-[build]
+name = "yiapanis-co"
 pages_build_output_dir = "dist"
 
 # Production secrets (set via Dashboard or `wrangler pages secret put`):
 # - CLERK_SECRET_KEY   : Clerk Secret Key for token verification
 # - GITHUB_TOKEN       : GitHub PAT with repo scope for CMS git-gateway
-# - CLERK_PUBLISHABLE_KEY: (public, inlined in admin/index.html)
-# - CLERK_FRONTEND_API : (public, inlined in admin/index.html)
 #
-# Local dev: these are read from .dev.vars
+# Public keys are inlined in public/admin/index.html:
+# - CLERK_PUBLISHABLE_KEY
+# - CLERK_FRONTEND_API
+#
+# Local dev secrets are read from .dev.vars
