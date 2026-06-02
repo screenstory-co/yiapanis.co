@@ -4,3 +4,11 @@ compatibility_date = "2026-05-29"
 
 [build]
 pages_build_output_dir = "dist"
+
+# Production secrets (set via Dashboard or `wrangler pages secret put`):
+# - CLERK_SECRET_KEY   : Clerk Secret Key for token verification
+# - GITHUB_TOKEN       : GitHub PAT with repo scope for CMS git-gateway
+# - CLERK_PUBLISHABLE_KEY: (public, inlined in admin/index.html)
+# - CLERK_FRONTEND_API : (public, inlined in admin/index.html)
+#
+# Local dev: these are read from .dev.vars

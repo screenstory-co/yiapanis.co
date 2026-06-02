@@ -3,21 +3,144 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager | Yiapanis.co</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <title>Content Manager | ScreenStory Studio</title>
+    <script>
+      window.CLERK_PUBLISHABLE_KEY = "pk_test_c3VyZS1zcXVpZC02Ny5jbGVyay5hY2NvdW50cy5kZXYk";
+      window.CLERK_FRONTEND_API = "https://sure-squid-67.clerk.accounts.dev";
+      window.__DECAP_CONFIG = {
+        media_folder: "public/images",
+        public_folder: "/images",
+        publish_mode: "editorial_workflow",
+        site_url: "https://yiapanis.co",
+        collections: [
+          {
+            name: "profile",
+            label: "Profile",
+            folder: "src/content/profile",
+            create: false,
+            delete: false,
+            slug: "default",
+            fields: [
+              { label: "Name", name: "name", widget: "string" },
+              { label: "Tagline", name: "tagline", widget: "string", required: false },
+              { label: "Headshot", name: "headshot", widget: "image", required: false },
+              { label: "Body", name: "body", widget: "markdown" }
+            ]
+          },
+          {
+            name: "films",
+            label: "Films",
+            folder: "src/content/films",
+            create: true,
+            delete: true,
+            slug: "{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Genre", name: "genre", widget: "list", allow_add: true },
+              { label: "Type", name: "type", widget: "string", required: false },
+              { label: "Synopsis", name: "synopsis", widget: "text" },
+              { label: "Video URL", name: "videoUrl", widget: "string", required: false },
+              { label: "Poster", name: "poster", widget: "image", required: false },
+              { label: "Order", name: "order", widget: "number", value_type: "int", default: 0 },
+              { label: "Year", name: "year", widget: "number", value_type: "int", required: false },
+              { label: "Body", name: "body", widget: "markdown", required: false }
+            ]
+          },
+          {
+            name: "blog",
+            label: "Blog Posts",
+            folder: "src/content/blog",
+            create: true,
+            delete: true,
+            slug: "{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false },
+              { label: "Draft", name: "draft", widget: "boolean", default: false },
+              { label: "Excerpt", name: "excerpt", widget: "text", required: false },
+              { label: "Body", name: "body", widget: "markdown" }
+            ]
+          },
+          {
+            name: "inDevelopment",
+            label: "In Development",
+            folder: "src/content/inDevelopment",
+            create: true,
+            delete: true,
+            slug: "{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Status", name: "status", widget: "select", options: ["concept", "development", "pre-production", "production"] },
+              { label: "Logline", name: "logline", widget: "text" },
+              { label: "Genre", name: "genre", widget: "list", allow_add: true, required: false },
+              { label: "Type", name: "type", widget: "string", required: false },
+              { label: "Body", name: "body", widget: "markdown", required: false }
+            ]
+          }
+        ]
+      };
+    </script>
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_c3VyZS1zcXVpZC02Ny5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://sure-squid-67.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
+    <style>
+      body { margin: 0; background: #0f0f0f; color: #e8e8e8; font-family: 'Montserrat', sans-serif; }
+      #clerk-login { display: none; max-width: 400px; margin: 4rem auto; text-align: center; }
+      #clerk-login h2 { font-family: 'Josefin Sans', sans-serif; font-weight: 300; margin-bottom: 2rem; }
+      #cms-root { display: none; height: 100vh; }
+    </style>
   </head>
   <body>
+    <div id="clerk-login">
+      <h2>ScreenStory Studio</h2>
+      <div id="clerk-sign-in"></div>
+    </div>
+    <div id="cms-root"></div>
+
     <script src="https://unpkg.com/decap-cms-app@^3.0.0/dist/decap-cms-app.js"></script>
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
+      (async function() {
+        const clerk = window.Clerk;
+        if (!clerk) {
+          document.body.innerHTML = '<p style="text-align:center;margin-top:4rem;">Authentication service unavailable. Please refresh.</p>';
+          return;
+        }
+
+        await clerk.load();
+
+        if (!clerk.user) {
+          document.getElementById('clerk-login').style.display = 'block';
+          clerk.mountSignIn(document.getElementById('clerk-sign-in'), {
+            routing: 'hash',
+            redirectUrl: window.location.href,
+          });
+          return;
+        }
+
+        document.getElementById('cms-root').style.display = 'block';
+
+        // Get Clerk session token and pass to Decap CMS backend
+        const token = await clerk.session.getToken();
+
+        CMS.init({
+          config: {
+            backend: {
+              name: 'git-gateway',
+              branch: 'main',
+              repo: 'screenstory-co/yiapanis.co',
+              identity_url: '/api/decap/identity',
+              gateway_url: '/api/decap/git-gateway',
+              token: token,
+            },
+            load_config_file: false,
+            ...window.__DECAP_CONFIG,
+          },
         });
-      }
+      })();
     </script>
   </body>
 </html>
